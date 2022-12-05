@@ -1,5 +1,0 @@
-*.exe
-
-*.out
-
-./tf/include/l1-domain/*
