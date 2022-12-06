@@ -1,3 +1,7 @@
+/*
+	custom RESTFul server.
+*/
+
 #include <iostream>
 
 using std::cout;
