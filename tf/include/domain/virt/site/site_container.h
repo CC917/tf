@@ -7,9 +7,6 @@
 
 using site_container = std::vector<tf::virt::site>;
 
-site_container sites;
-
-site_container getsite_container()
-{}
+site_container& getsite_container();
 
 #endif

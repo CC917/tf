@@ -5,32 +5,26 @@ using std::endl;
 
 #include "infra/common/web/cpp-httplib/httplib.h"
 #include "domain/virt/conn/connection.h"
-#include "infra/common/json/json.hpp"
+#include "domain/virt/login/login.h"
+#include "domain/virt/site/site.h"
+#include "domain/virt/vm/vm.h"
+#include "domain/obj/obj.h"
 
-using namespace tf;
+#include "context/action/LoginAndSaveToken.h"
+#include "context/action/EnumSiteInfoAndSaveURI.h"
+#include "context/action/CollectVmsInfo.h"
+#include "context/action/PrintVmInfo.h"
 
-using json = nlohmann::json;
-
-int test_main()
-{
-	cout << "client sandbox" << endl;
-
-	virt::virtconnection virt_conn("http://162.25.2.38:7070");
+int virt_main()
+{	
+	tf::virt::virtconnection virt_conn("http://162.25.2.38:7070");
 	
-	auto conn = virt_conn.getConnect();
+	obj::setConn(virt_conn);
 	
-	auto rsp = conn->Get("/service/sites");
-	
-	cout << rsp->body << endl;
-
-	json data = json::parse(rsp->body);
-
-	cout << data["errorCode"] << endl;
-	cout << data["errorDes"] << endl;
-	return 0;	
+	return 0;
 }
 
-int main()
+int main(int argc,char* argv[])
 {
-	return test_main();
+	return virt_main();
 }
