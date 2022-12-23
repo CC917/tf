@@ -16,6 +16,8 @@ struct LoginAndSaveToken
 		login_inst->LogIn("admin","b30039456!",obj::virt_conn);
 	
 		obj::XToken = login_inst->GetAuthToken();
+		
+		std::cout << "wefhweof\n";
 	}
 };
 
